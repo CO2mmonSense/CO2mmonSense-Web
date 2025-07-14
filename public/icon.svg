@@ -1,3 +1,32 @@
-<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="256" cy="256" r="256" fill="red"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="197.91208791190002 285.1648315226 100 100" xml:space="preserve">
+<desc>Created with Fabric.js 5.3.0</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 247.9120879119 335.1648315226)" id="to6nHkQerBO60Qwvzl6RS"  >
+<g style=""   >
+		<g transform="matrix(1 0 0 1 0 0)" id="G5NE8fTQn-B7LNovDU9Yx"  >
+<path style="stroke: rgb(9,239,154); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,188,63); fill-rule: nonzero; opacity: 1;"  transform=" translate(-50, -50)" d="M 100 100 L 50 100 L 50 100 C 22.4 100 0 77.6 0 50 C 0 22.4 22.4 0 50 0 C 77.6 0 100 22.4 100 50 C 100 50.00722 100 50.01444 100 50.02166 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 22.4999873256 0.00000117)" id="qCbWYdiYXGs2b6a-r92sy"  >
+<path style="stroke: rgb(228,48,138); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(-22.5, -45)" d="M 35.97868 82.5 C 40.11868 82.5 43.47868 85.86 43.47868 90 C 43.476659999999995 90 19.93745 90 7.500009999999996 90 L 7.500009999999996 0.6230900000000048 C 28.774159999999995 4.196990000000005 44.99999999999999 22.715140000000005 44.99999999999999 45.00000000000001 C 44.99999999999999 60.64636000000001 37.00139999999999 74.43589 24.872829999999993 82.5 z M 0 90 L 0 0 C 0 0 0.00001 0 0.00001 0 L 0.00001 90 C 0 90 0 90 0 90 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1 0 0 1 -22.5000117744 9e-7)" id="IZcAJGDmdJGrhHn-xmvhs"  >
+<path style="stroke: rgb(126,65,121); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(-22.5, -45)" d="M 0 45 C 0 22.71514 16.22585 4.1969800000000035 37.5 0.6230899999999977 L 37.5 89.37691999999998 C 16.22585 85.80301999999999 0 67.28486999999998 0 45.00000999999998 z M 45 0 L 45 90 C 45 90 45 90 45 90 L 45 0 C 45 0 45 0 45 0 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.23 0 0 1.23 0 0.00000117)" id="WCl52AqX7RXGdqd81PANP"  >
+<path style="stroke: rgb(234,178,41); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,188,63); fill-rule: nonzero; opacity: 1;"  transform=" translate(0, 0)" d="M 0 -30.4878 C 16.82927 -30.4878 30.4878 -16.829259999999998 30.4878 0 C 30.4878 16.82927 16.829259999999998 30.4878 0 30.4878 C -16.82927 30.4878 -30.4878 16.829259999999998 -30.4878 0 C -30.4878 -16.82927 -16.829259999999998 -30.4878 0 -30.4878 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(1.066 0 0 1.066 0.000006 0.3898924425)" id="9LPpY3oOUaXpvCQsEeUr2"  >
+<path style="stroke: rgb(234,178,41); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(0, 0)" d="M 0 -30.4878 C 16.82927 -30.4878 30.4878 -16.829259999999998 30.4878 0 C 30.4878 16.82927 16.829259999999998 30.4878 0 30.4878 C -16.82927 30.4878 -30.4878 16.829259999999998 -30.4878 0 C -30.4878 -16.82927 -16.829259999999998 -30.4878 0 -30.4878 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(0.82 0 0 0.82 0.000006 -0.0000048299)" id="9VTYaVP3TTaECR2XTIok9"  >
+<path style="stroke: rgb(234,178,41); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,188,63); fill-rule: nonzero; opacity: 1;"  transform=" translate(0, 0)" d="M 0 -30.4878 C 16.82927 -30.4878 30.4878 -16.829259999999998 30.4878 0 C 30.4878 16.82927 16.829259999999998 30.4878 0 30.4878 C -16.82927 30.4878 -30.4878 16.829259999999998 -30.4878 0 C -30.4878 -16.82927 -16.829259999999998 -30.4878 0 -30.4878 z" stroke-linecap="round" />
+</g>
+		<g transform="matrix(0.0141947417 0 0 -0.0141947417 0.0000246742 0.3898924425)" id="2IYpjfW9R_KIsvZ5Tlphn"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(-1499.3549235414, -987.3009480377)" d="M 340 1810 C 317 1804 315 1799 317 1754 C 320 1700 340 1589 371 1460 C 453 1121 617 810 780 688 C 902 597 1035 560 1153 585 C 1216 598 1352 659 1365 680 C 1378 701 1392 689 1415 637 C 1449 563 1461 475 1450 382 C 1445 340 1438 295 1434 283 C 1430 269 1434 257 1447 246 C 1457 238 1485 215 1508 196 C 1532 176 1555 160 1560 160 C 1578 160 1588 191 1599 285 C 1606 340 1616 413 1621 446 C 1632 509 1682 610 1701 610 C 1708 610 1731 594 1753 574 C 1775 554 1821 524 1857 508 C 1916 480 1928 478 2006 482 C 2081 486 2100 491 2175 529 C 2313 599 2433 739 2550 965 C 2632 1124 2692 1271 2681 1287 C 2650 1333 2292 1356 2105 1325 C 2010 1308 1906 1273 1835 1234 C 1675 1144 1589 960 1630 791 C 1641 742 1641 737 1618 702 C 1605 682 1591 657 1587 648 C 1577 619 1560 628 1560 662 C 1560 679 1546 724 1529 761 C 1497 829 1497 829 1520 882 C 1591 1047 1592 1187 1524 1326 C 1434 1510 1222 1654 920 1739 C 751 1786 406 1829 340 1810 z M 710 1479 C 925 1409 1113 1259 1291 1018 C 1405 864 1434 790 1381 790 C 1351 790 1297 852 1233 959 C 1047 1274 934 1370 632 1475 C 619 1480 624 1500 639 1500 C 643 1500 675 1491 710 1479 z M 2438 1148 C 2436 1142 2395 1129 2347 1119 C 2162 1080 2040 1006 1885 836 C 1802 745 1757 710 1721 710 C 1680 710 1701 744 1803 843 C 1917 953 2065 1057 2167 1100 C 2276 1146 2447 1176 2438 1148 z" stroke-linecap="round" />
+</g>
+</g>
+</g>
 </svg>
