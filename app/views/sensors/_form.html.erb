@@ -1,0 +1,44 @@
+<%= form_with model: sensor do |form| %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+        <% if sensor.errors[:name].any? %>
+          <div class="text-danger">
+            <small><%= sensor.errors.full_messages_for(:name).join(", ") %></small>
+          </div>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :sender_id, class: "form-label" %>
+        <%= form.text_field :sender_id, class: "form-control", placeholder: "e.g., !a1b2c3d4" %>
+        <div class="form-text">
+            You can find the sender ID on your Meshtastic device.
+        </div>
+        <% if sensor.errors[:sender_id].any? %>
+          <div class="text-danger">
+            <small><%= sensor.errors.full_messages_for(:sender_id).join(", ") %></small>
+          </div>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :latitude, class: "form-label" %>
+        <%= form.number_field :latitude, class: "form-control", step: :any %>
+        <% if sensor.errors[:latitude].any? %>
+          <div class="text-danger">
+            <small><%= sensor.errors.full_messages_for(:latitude).join(", ") %></small>
+          </div>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :longitude, class: "form-label" %>
+        <%= form.number_field :longitude, class: "form-control", step: :any %>
+        <% if sensor.errors[:longitude].any? %>
+          <div class="text-danger">
+            <small><%= sensor.errors.full_messages_for(:longitude).join(", ") %></small>
+          </div>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.submit class: "btn btn-primary" %>
+    </div>
+<% end %>

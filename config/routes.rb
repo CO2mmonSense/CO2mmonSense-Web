@@ -19,4 +19,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  resources :sensors
+
+  namespace :api do
+    get 'documentation', to: 'documentation#index'
+  end
+
+  constraints subdomain: "api" do
+    scope module: "api", as: "api" do
+      namespace :v1 do
+        post 'sensors/:sender_id/readings', to: 'readings#create', as: :create_readings
+        resources :sensors, only: [:show, :index]
+      end
+    end
+  end
 end

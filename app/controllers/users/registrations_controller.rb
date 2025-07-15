@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  before_action :validate_is_signed_in
+  before_action :validate_is_signed_in, only: [:upload_avatar, :remove_avatar]
 
   def upload_avatar
     if current_user.avatar.attach(io: params[:avatar], filename: "avatar")

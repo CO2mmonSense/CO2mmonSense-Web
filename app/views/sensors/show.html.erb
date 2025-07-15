@@ -1,0 +1,8 @@
+<div class="container mt-5" style="max-width: 800px;">
+    <h1><%= @sensor.name %></h1>
+    <div
+        data-controller="sensor-chart"
+        data-sensor-chart-payload-value="<%= @chart_payload %>"
+        style="width: 100%; height: 700px;">
+    </div>
+</div>
