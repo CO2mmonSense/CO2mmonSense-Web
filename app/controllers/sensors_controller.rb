@@ -5,6 +5,7 @@ class SensorsController < ApplicationController
 
     def index
         @sensors = Sensor.all
+        @metric = Metric.find(params[:metric])
     end
 
     def show

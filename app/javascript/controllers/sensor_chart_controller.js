@@ -29,7 +29,17 @@ export default class extends Controller {
         data: payload.data.map(item => item[0])
       },
       yAxis: {
-        name: 'PM2.5 (µg/m³)'
+        name: 'PM2.5 (µg/m³)',
+        min: 0,
+        max: function (value) {
+          const defaultMax = 300; 
+
+          if (value.max < defaultMax) {
+            return defaultMax;
+          }
+          
+          return value.max;
+        },
       },
       toolbox: {
         right: 10,

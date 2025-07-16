@@ -13,7 +13,7 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "with valid parameters" do
       before do 
-        post api_v1_create_readings_path(sensor.sender_id), params: { reading: valid_attributes }, headers: { "X-Auth-Token" => SECRET_KEY }
+        post api_v1_create_readings_path(sensor.sender_id), params: { reading: valid_attributes }, headers: { "Authorization" => "Bearer #{SECRET_KEY}" }
       end
 
       it "creates a new Reading" do
@@ -53,7 +53,7 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "with invalid auth token" do
       before do 
-        post api_v1_create_readings_path(sensor.sender_id), params: { reading: valid_attributes }, headers: { "X-Auth-Token" => "invalid" }
+        post api_v1_create_readings_path(sensor.sender_id), params: { reading: valid_attributes }, headers: { "Authorization" => "invalid" }
       end
 
       it "does not create a new Reading" do
@@ -67,7 +67,7 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "with invalid sender id" do
       before do 
-        post api_v1_create_readings_path("invalid"), params: { reading: valid_attributes }, headers: { "X-Auth-Token" => SECRET_KEY }
+        post api_v1_create_readings_path("invalid"), params: { reading: valid_attributes }, headers: { "Authorization" => "Bearer #{SECRET_KEY}" }
       end
 
       it "does not create a new Reading" do

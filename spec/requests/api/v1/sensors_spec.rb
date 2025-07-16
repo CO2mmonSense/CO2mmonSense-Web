@@ -19,7 +19,6 @@ RSpec.describe "Api::V1::Sensors", type: :request do
 
         it "returns all sensors" do
             json = JSON.parse(response.body)
-            puts json.to_s
             expect(json.size).to eq(3)
         end
 
@@ -40,7 +39,6 @@ RSpec.describe "Api::V1::Sensors", type: :request do
 
             it "returns the sensor" do
                 json = JSON.parse(response.body)
-                puts json.to_s
                 expect(json["name"]).to eq(sensor.name)
                 expect(json["sender_id"]).to eq(sensor.sender_id)
                 expect(json["longitude"]).to eq(sensor.longitude)

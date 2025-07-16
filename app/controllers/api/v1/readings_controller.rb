@@ -21,9 +21,10 @@ class Api::V1::ReadingsController < ActionController::API
     end
 
     def authenticate_with_shared_secret!
-        provided_secret = request.headers["X-Auth-Token"]
+        header = request.headers['Authorization']
+        provided_token = header.split(' ').last if header
 
-        unless ActiveSupport::SecurityUtils.secure_compare(provided_secret.to_s, SECRET_KEY)
+        unless ActiveSupport::SecurityUtils.secure_compare(provided_token.to_s, SECRET_KEY)
             render json: { error: "Unauthorized" }, status: :unauthorized
         end
     end

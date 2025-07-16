@@ -1,12 +1,29 @@
 <div class="container mt-5" style="max-width: 800px;">
     <h1>Sensors</h1>
+    <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= @metric.label %>
+        </button>
+        <ul class="dropdown-menu">
+            <li><%= link_to "PM 25", sensors_path(metric: "pm25"), class: "dropdown-item" %></li>
+            <li><%= link_to "PM 10", sensors_path(metric: "pm10"), class: "dropdown-item" %></li>
+            <li><%= link_to "PM 100", sensors_path(metric: "pm100"), class: "dropdown-item" %></li>
+            <li><%= link_to "CO2", sensors_path(metric: "co2"), class: "dropdown-item" %></li>
+            <li><%= link_to "Relative Humidity", sensors_path(metric: "relative_humidity"), class: "dropdown-item" %></li>
+            <li><%= link_to "Temperature", sensors_path(metric: "temperature"), class: "dropdown-item" %></li>
+        </ul>
+    </div>
     <% @sensors.each do |sensor| %>
-        <div class="card mt-2">
-            <div class="p-2 d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <%= link_to sensor.name, sensor_path(sensor), class: "text-decoration-none" %>
+        <% color = Color::PALETTE[sensor.latest_reading.color_for(@metric.key)] %>
+        <%= link_to sensor_path(sensor), class: "text-decoration-none" do %>
+            <div class="card mt-2">
+                <div class="p-2 d-flex align-items-center gap-2">
+                    <div class="p-1 rounded text-center" style="background-color: <%= color[:bg] %>; color: <%= color[:text] %>; width: 50px; font-size: 14px;"><%= sensor.latest_reading.value_for(@metric.key) %></div>
+                    <div class="d-flex align-items-center">
+                        <%= sensor.name %>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
     <% end %>
 </div>
