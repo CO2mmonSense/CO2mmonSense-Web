@@ -19,6 +19,8 @@ class SensorsController < ApplicationController
             name: @sensor.name,
             data: chart_data
         }.to_json
+
+        @metric = Metric.find(params[:metric])
     end
 
     def new

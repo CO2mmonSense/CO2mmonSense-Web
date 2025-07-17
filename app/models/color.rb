@@ -10,5 +10,5 @@ class Color
         warm: { bg: "#face4b", text: "#614d13" },
         cool: { bg: "#c8ecfc", text: "#3d6273" },
         freezing: { bg: "#52cbf7", text: "#255363" },
-}.freeze
+    }.freeze
 end

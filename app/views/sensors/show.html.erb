@@ -1,5 +1,19 @@
 <div class="container mt-5" style="max-width: 800px;">
     <h1><%= @sensor.name %></h1>
+    <div>Last updated: <%= @sensor.latest_reading.timestamp %></div>
+    <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= @metric.label %>
+        </button>
+        <ul class="dropdown-menu">
+            <li><%= link_to "PM 25", sensor_path(@sensor, metric: "pm25"), class: "dropdown-item" %></li>
+            <li><%= link_to "PM 10", sensor_path(@sensor, metric: "pm10"), class: "dropdown-item" %></li>
+            <li><%= link_to "PM 100", sensor_path(@sensor, metric: "pm100"), class: "dropdown-item" %></li>
+            <li><%= link_to "CO2", sensor_path(@sensor, metric: "co2"), class: "dropdown-item" %></li>
+            <li><%= link_to "Relative Humidity", sensor_path(@sensor, metric: "relative_humidity"), class: "dropdown-item" %></li>
+            <li><%= link_to "Temperature", sensor_path(@sensor, metric: "temperature"), class: "dropdown-item" %></li>
+        </ul>
+    </div>
     <div
         data-controller="sensor-chart"
         data-sensor-chart-payload-value="<%= @chart_payload %>"
