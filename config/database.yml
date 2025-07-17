@@ -81,18 +81,16 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: co2mmon_sense_production
-    username: co2mmon_sense
-    password: <%= ENV["CO2MMON_SENSE_DATABASE_PASSWORD"] %>
+    database: <%= ENV["DB_DATABASE"] %>
+    username: <%= ENV["DB_USER"] %>
+    password: <%= ENV["DB_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
   cache:
     <<: *primary_production
-    database: co2mmon_sense_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: co2mmon_sense_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: co2mmon_sense_production_cable
     migrations_paths: db/cable_migrate
