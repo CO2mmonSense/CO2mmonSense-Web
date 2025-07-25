@@ -2,7 +2,7 @@
 service: co2mmon_sense
 
 # Name of the container image.
-image: co2mmon_sense/rails
+image: co2mmonsense/rails
 
 # Deploy to these servers.
 servers:
