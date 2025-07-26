@@ -7,7 +7,7 @@ image: co2mmonsense/rails
 # Deploy to these servers.
 servers:
   web:
-    - 3.136.83.233
+    - 3.149.163.92
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -125,7 +125,7 @@ ssh:
 accessories:
   postgres:
     image: postgres:15
-    host: 3.136.83.233
+    host: 3.149.163.92
     env:
       clear:
         POSTGRES_USER: co2mmon_sense
