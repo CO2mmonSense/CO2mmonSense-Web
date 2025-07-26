@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :books
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
+  devise_scope :user do
+    patch 'users/avatar', to: 'users/registrations#upload_avatar', as: :upload_user_avatar
+    delete 'users/avatar', to: 'users/registrations#remove_avatar', as: :remove_user_avatar
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,5 +18,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "books#index"
+  root "home#index"
 end

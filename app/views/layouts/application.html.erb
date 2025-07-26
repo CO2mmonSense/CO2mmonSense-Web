@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Co2mmon Sense" %></title>
+    <title><%= content_for(:title) || "CO2mmon Sense" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,6 +23,55 @@
   </head>
 
   <body>
-    <%= yield %>
+     <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "logo_teardrop.png", width: 24, height: 24, class: "d-inline-block align-text-top" %>
+          CO2mmonSense
+        <% end %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sensors", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "API", root_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <div class="d-flex gap-1">
+          <% if user_signed_in? %>
+            <div class="btn-group d-flex align-items-center">
+              <button type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:none;background:none;padding: 0;" class="focus-ring rounded focus-ring-light">
+                <%= image_tag user_avatar(current_user), width: 36, height: 36, class: "rounded"%>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><%= link_to "User settings", edit_user_registration_path, class: "dropdown-item"%></li>
+                <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-primary"%>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div style="padding-top: 57px;">
+      <% if notice %>
+        <div class="alert alert-primary m-2" role="alert"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger m-2" role="alert"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
