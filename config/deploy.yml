@@ -18,7 +18,7 @@ servers:
 #
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
-  ssl: false
+  ssl: true
   host: co2mmonsense.org
 
 # Credentials for your image host.
