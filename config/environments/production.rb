@@ -93,5 +93,5 @@ Rails.application.configure do
   }
 
   # Make sure you also have your allowed hosts here for regular traffic.
-  config.hosts << "ec2-3-136-83-233.us-east-2.compute.amazonaws.com"
+  config.hosts = [ "co2mmonsense.org" ]
 end
