@@ -1,0 +1,10 @@
+<div class="container mt-5" style="max-width: 800px;">
+    <h1><%= @sensor.name %></h1>
+    <p>Meshtastic ID: <%= @sensor.sender_id %></p>
+    <% if @sensor.user == current_user %>
+        <div class="d-flex gap-2">
+            <%= link_to "Edit", edit_sensor_path(@sensor), class: "btn btn-primary" %>
+            <%= button_to "Destroy", sensor_path(@sensor), method: :delete, class: "btn btn-danger" %>
+        </div>
+    <% end %>
+</div>

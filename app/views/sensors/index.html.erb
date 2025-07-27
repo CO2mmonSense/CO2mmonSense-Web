@@ -1,0 +1,17 @@
+<div class="container mt-5" style="max-width: 800px;">
+    <h1>Sensors</h1>
+    <% @sensors.each do |sensor| %>
+        <%= link_to sensor_path(sensor), class: "text-decoration-none" do %>
+            <div class="card mt-2">
+                <div class="p-2 d-flex align-items-center">
+                    <%= sensor.name %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+        <div class="mt-3">
+            <%= link_to "Register Sensor", new_sensor_path, class: "btn btn-primary"%>
+        </div>
+    <% end %>
+</div>
