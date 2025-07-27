@@ -124,7 +124,7 @@ ssh:
 
 accessories:
   postgres:
-    image: postgres:15
+    image: postgis/postgis:15-3.5
     host: 3.149.163.92
     env:
       clear:

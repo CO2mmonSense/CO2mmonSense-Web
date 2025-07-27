@@ -6,6 +6,8 @@ gem "rails", "~> 8.0.2"
 gem "propshaft"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+# Add PostGIS adapter to database for geospacial queries
+gem 'activerecord-postgis-adapter'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -38,7 +40,7 @@ gem "kamal", require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
-
+# Use devise for user authentication
 gem "devise", "~> 4.9", ">= 4.9.4"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
