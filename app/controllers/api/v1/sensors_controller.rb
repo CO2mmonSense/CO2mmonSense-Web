@@ -15,7 +15,7 @@ class Api::V1::SensorsController < ActionController::API
         sensor.as_json(only: [:id, :name, :sender_id]).merge(
             latitude: sensor.latitude,
             longitude: sensor.longitude,
-            latest_reading: sensor.latest_reading.as_json(only: [ :id, :pm25, :pm10, :pm100, :co2, :temperature, :relative_humidity, :battery_level, :timestamp ])
+            latest_reading: sensor.latest_reading.as_json(only: [ :pm25, :pm10, :pm100, :co2, :temperature, :relative_humidity, :battery_level, :timestamp ])
         )
     end
 end

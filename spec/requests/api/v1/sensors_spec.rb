@@ -43,7 +43,6 @@ RSpec.describe "Api::V1::Sensors", type: :request do
                 expect(json["sender_id"]).to eq(sensor.sender_id)
                 expect(json["longitude"]).to eq(sensor.longitude)
                 expect(json["latitude"]).to eq(sensor.latitude)
-                expect(json["latest_reading"]["id"]).to eq(reading_2.id)
                 expect(json["latest_reading"]["pm25"]).to eq(reading_2.pm25)
                 expect(json["latest_reading"]["pm10"]).to eq(reading_2.pm10)
                 expect(json["latest_reading"]["pm100"]).to eq(reading_2.pm100)

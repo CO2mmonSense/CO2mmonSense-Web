@@ -8,7 +8,7 @@ class Api::V1::ReadingsController < ActionController::API
         reading = sensor.readings.build(reading_params)
 
         if reading.save
-            render json: reading, status: :created
+            render json: reading_json(reading), status: :created
         else
             render json: reading.errors, status: :unprocessable_entity
         end
@@ -18,7 +18,7 @@ class Api::V1::ReadingsController < ActionController::API
         sensor = Sensor.find(params[:sensor_id])
         readings = sensor.readings
 
-        render json: readings.map { |reading| reading.as_json(only: [:timestamp, :pm25, :pm10, :pm100, :co2, :relative_humidity, :temperature, :battery_level]) }
+        render json: readings.map { |reading| reading_json(reading) }
     end
 
     private 
@@ -34,5 +34,9 @@ class Api::V1::ReadingsController < ActionController::API
         unless ActiveSupport::SecurityUtils.secure_compare(provided_token.to_s, SHARED_SECRET)
             render json: { error: "Unauthorized" }, status: :unauthorized
         end
+    end
+
+    def reading_json(reading)
+        reading.as_json(only: [ :pm25, :pm10, :pm100, :co2, :temperature, :relative_humidity, :battery_level, :timestamp ])
     end
 end
