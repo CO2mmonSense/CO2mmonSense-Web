@@ -2,6 +2,8 @@ class Sensor < ApplicationRecord
     attr_accessor :latitude, :longitude
 
     belongs_to :user
+    has_many :readings, dependent: :destroy
+    has_one :latest_reading, -> { order(timestamp: :desc) }, class_name: 'Reading'
 
     validates :name, presence: true
     validates :sender_id, presence: true, uniqueness: true, format: { with: /\A![0-9a-fA-F]{8}\z/, message: "must be a valid Meshtastic node ID (e.g., !a1b2c3d4)" }

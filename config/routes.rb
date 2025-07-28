@@ -21,4 +21,19 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :sensors
+
+  namespace :api do
+    get 'documentation', to: 'documentation#index'
+  end
+
+  constraints subdomain: "api" do
+    scope module: "api", as: "api" do
+      namespace :v1 do
+        post 'sensors/:sender_id/readings', to: 'readings#create', as: :create_readings
+        resources :sensors, only: [:show, :index] do
+          get 'readings', to: 'readings#index'
+        end
+      end
+    end
+  end
 end
