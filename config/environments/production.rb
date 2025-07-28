@@ -93,5 +93,5 @@ Rails.application.configure do
   }
 
   # Make sure you also have your allowed hosts here for regular traffic.
-  config.hosts = [ "co2mmonsense.org" ]
+  config.hosts = [ "co2mmonsense.org", "api.co2mmonsense.org" ]
 end
