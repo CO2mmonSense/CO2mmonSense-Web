@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Api::V1::Readings", type: :request do
   SHARED_SECRET = Rails.application.credentials.mqtt_broker[:shared_secret]
+  let(:api_key) { create(:api_key) }
 
   before do
     host! "api.example.com"
@@ -17,7 +18,7 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "sensor with 2 readings" do
       before do 
-        get api_v1_sensor_readings_path(sensor_1)
+        get api_v1_sensor_readings_path(sensor_1), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
       end
 
       it "returns all readings" do
@@ -32,7 +33,7 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "sensor with 1 reading" do
       before do 
-        get api_v1_sensor_readings_path(sensor_2)
+        get api_v1_sensor_readings_path(sensor_2), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
       end
 
       it "returns all readings" do
@@ -47,10 +48,10 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "sensor with no readings" do
       before do 
-        get api_v1_sensor_readings_path(sensor_3)
+        get api_v1_sensor_readings_path(sensor_3), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
       end
 
-      it "returns all readings" do
+      it "returns no readings" do
         json = JSON.parse(response.body)
         expect(json.size).to eq(0)
       end
@@ -59,6 +60,27 @@ RSpec.describe "Api::V1::Readings", type: :request do
           expect(response).to have_http_status(:success)
       end
     end
+
+    context "without api key" do
+      before do 
+        get api_v1_sensor_readings_path(sensor_2)
+      end
+
+      it "returns HTTP unauthorized" do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+    
+    context "with an invalid api key" do
+      before do 
+        get api_v1_sensor_readings_path(sensor_2), headers: { "Authorization" => "invalid" }
+      end
+      
+      it "returns HTTP unauthorized" do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+    
   end
 
   describe "POST /create" do

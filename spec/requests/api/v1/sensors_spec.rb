@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1::Sensors", type: :request do
+    let(:api_key) { create(:api_key) }
+
     before do
         host! "api.example.com"
     end
@@ -14,7 +16,7 @@ RSpec.describe "Api::V1::Sensors", type: :request do
         let!(:reading_2) { create(:reading, timestamp: Date.new(2025, 5, 22), sensor: sensor_2) }
 
         before do
-            get api_v1_sensors_path
+            get api_v1_sensors_path, headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
         end
 
         it "returns all sensors" do
@@ -25,6 +27,26 @@ RSpec.describe "Api::V1::Sensors", type: :request do
         it "returns http success" do
             expect(response).to have_http_status(:success)
         end
+
+        context "without api key" do
+            before do 
+                get api_v1_sensors_path
+            end
+
+            it "returns HTTP unauthorized" do
+                expect(response).to have_http_status(:unauthorized)
+            end
+        end
+            
+        context "with an invalid api key" do
+            before do 
+                get api_v1_sensors_path, headers: { "Authorization" => "invalid" }
+            end
+            
+            it "returns HTTP unauthorized" do
+                expect(response).to have_http_status(:unauthorized)
+            end
+        end
     end
 
     describe "GET /show" do
@@ -34,7 +56,7 @@ RSpec.describe "Api::V1::Sensors", type: :request do
 
         context "with a valid id" do
             before do
-                get api_v1_sensor_path(sensor.id)
+                get api_v1_sensor_path(sensor.id), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
             end
 
             it "returns the sensor" do
@@ -59,11 +81,31 @@ RSpec.describe "Api::V1::Sensors", type: :request do
 
         context "with an invalid id" do
             before do
-                get api_v1_sensor_path("invalid")
+                get api_v1_sensor_path("invalid"), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
             end
 
             it "returns http not found" do
                 expect(response).to have_http_status(:not_found)
+            end
+        end
+
+        context "without api key" do
+            before do 
+                get api_v1_sensor_path(sensor.id)
+            end
+
+            it "returns HTTP unauthorized" do
+                expect(response).to have_http_status(:unauthorized)
+            end
+        end
+            
+        context "with an invalid api key" do
+            before do 
+                get api_v1_sensor_path(sensor.id), headers: { "Authorization" => "invalid" }
+            end
+            
+            it "returns HTTP unauthorized" do
+                expect(response).to have_http_status(:unauthorized)
             end
         end
     end

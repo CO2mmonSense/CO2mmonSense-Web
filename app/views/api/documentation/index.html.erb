@@ -1,4 +1,6 @@
 <div class="container mt-5" style="max-width: 800px;">
     <h1>CO2mmonSense API</h1>
-    
+    <% if user_signed_in? %>
+        <%= link_to "Manage API Keys", api_keys_path, class: "btn btn-primary"%>
+    <% end %>
 </div>

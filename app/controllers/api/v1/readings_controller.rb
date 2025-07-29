@@ -1,7 +1,8 @@
-class Api::V1::ReadingsController < ActionController::API
+class Api::V1::ReadingsController < Api::BaseController
     SHARED_SECRET = Rails.application.credentials.mqtt_broker[:shared_secret]
     
     before_action :authenticate_with_shared_secret!, only: :create
+    before_action :authenticate_api_key!, only: :index
 
     def create
         sensor = Sensor.find_by!(sender_id: params[:sender_id])

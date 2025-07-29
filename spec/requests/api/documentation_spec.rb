@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Documentation", type: :request do
+RSpec.describe "Api::Documentation", type: :request do
   describe "GET /index" do
     before do
       get api_documentation_path

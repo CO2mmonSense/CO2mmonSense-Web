@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include HasValidatedImage
 
   has_many :sensors, dependent: :destroy
+  has_many :api_keys, as: :bearer, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

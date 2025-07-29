@@ -180,7 +180,7 @@ RSpec.describe "Sensors", type: :request do
           patch sensor_path(sensor), params: { sensor: valid_params }
         end
 
-        it { expect(response).to have_http_status(302) }
+        it { expect(response).to have_http_status(:redirect) }
 
         it "should redirect to the sensor page" do
           expect(response).to redirect_to(sensor_path(sensor))

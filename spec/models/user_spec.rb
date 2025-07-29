@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   let(:incorrect_filetype) { fixture_file_upload("spec/fixtures/incorrect_filetype.txt", "text/plain") }
   let(:correct_size_avatar) { Rack::Test::UploadedFile.new(mock_jpg(4.9.megabytes), 'image/jpg', original_filename: 'avatar.jpg') }
   let(:oversized_avatar) { Rack::Test::UploadedFile.new(mock_jpg(5.1.megabytes), 'image/jpg', original_filename: 'avatar.jpg') } 
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   describe "avatar validations" do
     context 'when avatar is not attached' do

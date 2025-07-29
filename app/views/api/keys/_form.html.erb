@@ -1,0 +1,26 @@
+<% expiration_options = [
+    ["Never", nil],
+    ["7 days", 7.days.from_now],
+    ["30 days", 30.days.from_now],
+    ["90 days", 90.days.from_now],
+    ["1 year", 1.year.from_now]
+] %>
+
+<%= form_with model: api_key do |form| %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :expires_at, "Expires in", class: "form-label" %>
+        <%= form.select :expires_at, 
+                        options_for_select(expiration_options), 
+                        {}, 
+                        { class: "form-select" } %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit class: "btn btn-primary" %>
+    </div>
+<% end %>

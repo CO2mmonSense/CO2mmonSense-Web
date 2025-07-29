@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_27_211825) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_28_182255) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -41,6 +41,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_27_211825) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string "bearer_type"
+    t.bigint "bearer_id"
+    t.string "name"
+    t.string "token_digest", null: false
+    t.string "common_prefix", null: false
+    t.string "random_prefix", null: false
+    t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bearer_type", "bearer_id"], name: "index_api_keys_on_bearer"
+    t.index ["token_digest"], name: "index_api_keys_on_token_digest", unique: true
   end
 
   create_table "readings", force: :cascade do |t|

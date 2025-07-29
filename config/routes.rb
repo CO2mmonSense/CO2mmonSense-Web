@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'documentation', to: 'documentation#index'
+    resources :keys, except: :show
   end
 
   constraints subdomain: "api" do

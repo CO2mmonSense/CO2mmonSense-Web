@@ -1,4 +1,6 @@
-class Api::V1::SensorsController < ActionController::API
+class Api::V1::SensorsController < Api::BaseController
+    before_action :authenticate_api_key!
+
     def index
         sensors = Sensor.includes(:latest_reading).all
         render json: sensors.map { |sensor| sensor_json(sensor) }
