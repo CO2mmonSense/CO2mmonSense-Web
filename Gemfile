@@ -5,7 +5,7 @@ gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.6"
 # Add PostGIS adapter to database for geospacial queries
 gem 'activerecord-postgis-adapter'
 # Use the Puma web server [https://github.com/puma/puma]
