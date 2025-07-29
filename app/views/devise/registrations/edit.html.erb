@@ -104,25 +104,4 @@
 
   <h3>Delete my account</h3>
 
-  <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
-    Delete Account
-  </button>
-
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="deleteModalLabel">Warning</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          This action cannot be undone. Are you sure you want to continue?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <%= button_to "Delete Account", registration_path(resource_name), method: :delete, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <%= render partial: "shared/modal", locals: { small: false, dialog: "Are you sure you want to delete your account? This action cannot be undone.", method: :delete, path: registration_path(resource_name), button_text: "Delete Account", danger: true } %>
