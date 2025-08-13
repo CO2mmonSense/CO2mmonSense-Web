@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Api::V1::Readings", type: :request do
   SHARED_SECRET = Rails.application.credentials.mqtt_broker[:shared_secret]
   let(:api_key) { create(:api_key) }
+  let(:time_range_params) { { start_at: '2025-01-01T00:00:00Z', end_at: '2025-12-31T23:59:59Z' } }
+
 
   before do
     host! "api.example.com"
@@ -18,12 +20,12 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "sensor with 2 readings" do
       before do 
-        get api_v1_sensor_readings_path(sensor_1), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
+        get api_v1_sensor_readings_path(sensor_1), params: time_range_params, headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
       end
 
       it "returns all readings" do
         json = JSON.parse(response.body)
-        expect(json.size).to eq(2)
+        expect(json['data'].size).to eq(2)
       end
 
       it "returns http success" do
@@ -33,12 +35,12 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "sensor with 1 reading" do
       before do 
-        get api_v1_sensor_readings_path(sensor_2), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
+        get api_v1_sensor_readings_path(sensor_2), params: time_range_params, headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
       end
 
       it "returns all readings" do
         json = JSON.parse(response.body)
-        expect(json.size).to eq(1)
+        expect(json['data'].size).to eq(1)
       end
 
       it "returns http success" do
@@ -48,12 +50,12 @@ RSpec.describe "Api::V1::Readings", type: :request do
 
     context "sensor with no readings" do
       before do 
-        get api_v1_sensor_readings_path(sensor_3), headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
+        get api_v1_sensor_readings_path(sensor_3), params: time_range_params, headers: { "Authorization" => "Bearer #{api_key.raw_token}" }
       end
 
       it "returns no readings" do
         json = JSON.parse(response.body)
-        expect(json.size).to eq(0)
+        expect(json['data'].size).to eq(0)
       end
 
       it "returns http success" do
