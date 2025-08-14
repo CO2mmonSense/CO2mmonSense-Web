@@ -113,7 +113,7 @@ class Api::V1::ReadingsController < Api::BaseController
         }
         end
 
-        render json: { data: rows }
+        render json: rows
     end
 
     private
